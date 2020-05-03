@@ -1,25 +1,27 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import SearchBar from './Components/SearchBar';
+import GifTable from './Components/GifTable';
 
-function App() {
+const API_URL = process.env.REACT_APP_API_URL;
+const API_KEY = process.env.REACT_APP_API_KEY;
+
+const App = () => {
+
+  const [data, setData] = React.useState([]);
+
+  const doSearch = (searchTerm) => {
+    window.fetch(`${API_URL}?api_key=${API_KEY}&q=${searchTerm}`)
+    .then( response => response.json() )
+    .then( json => setData(json.data) )
+    .catch( error => console.log(`Error: ${error}`) );
+  } 
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <SearchBar onSearch={doSearch} />
+      <GifTable data={data} />
+    </>
   );
 }
 
