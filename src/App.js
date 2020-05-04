@@ -17,6 +17,7 @@ const App = () => {
   const [page, setPage] = React.useState(0);
   const [loading, setLoading] = React.useState(false);
   const [total, setTotal] = React.useState(0);
+  const [noData, setNoData] = React.useState(false);
 
   const getData = ( q, page = 0) => {
     
@@ -24,12 +25,12 @@ const App = () => {
 
     setLoading(true); 
 
-    console.log('API Call')
     window.fetch(`${API_URL}?api_key=${API_KEY}&q=${q}&limit=${PAGE_SIZE}&offset=${PAGE_SIZE*page}`)
       .then( response => response.json() )
       .then( json => {
         setLoading(false);
         setTotal(json.pagination.total_count);
+        setNoData( json.data.length === 0 );
         setData( data => {
           if (page === 0) return json.data;
           return data.concat(json.data);
@@ -75,16 +76,21 @@ const App = () => {
   } , [data]);
 
   return (
-    <>
+    <div style={{width:'80%', margin:'0 auto'}}>
       <SearchBar onSearch={doSearch} position={ q === null ? 'center' : 'top' }/>
-      {data.length > 0 &&
-      <GifGallery 
-          data={data} 
-          columns={GRID_COLUMNS}
-        />
+      {noData && 
+        <p>
+          No results found. Try another word.
+        </p>
       }
-      {loading && <Loader/>}
-    </>
+      {data.length > 0 &&
+        <GifGallery 
+            data={data} 
+            columns={GRID_COLUMNS}
+          />
+      }
+      {loading && <Loader fixed={data.length > 0}/>}
+    </div>
   );
 }
 

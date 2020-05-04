@@ -1,0 +1,15 @@
+.loaderFixed {
+    color: #7f51fd; 
+    position: fixed;
+    right: 15px;
+    bottom: 15px; 
+    font-size: 30px; 
+    margin-top:10px;
+}
+
+.loaderFloating{
+    color: #7f51fd; 
+    position: relative;
+    font-size: 30px; 
+    margin-top: 10px;
+}
