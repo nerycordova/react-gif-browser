@@ -27,5 +27,5 @@ npm start
 
 ## Resources
 * This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app)
-* Favicon generate using [favicon.io](https://favicon.io/favicon-generator/)
+* Favicon generated using [favicon.io](https://favicon.io/favicon-generator/)
 * GitHub corner added thanks to [react-github-corner] (https://github.com/skratchdot/react-github-corner)
