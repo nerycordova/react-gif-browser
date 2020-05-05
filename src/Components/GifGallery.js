@@ -7,19 +7,29 @@ const GifGallery = (props) => {
 
     const [data, _setData] = React.useState([]);
     const [openGif, _setOpenGif] = React.useState(-1);
-    const refOpenGif = React.useRef(openGif);
-    const refDataLength = React.useRef(data.length);
 
+    //references to be used within window event listener
+    const refOpenGif = React.useRef(openGif); 
+    const refDataLength = React.useRef(data.length); 
+
+    //Sets index of gif to be opened in the slideshow
     const setOpenGif = value => {
         refOpenGif.current = value;
         _setOpenGif (value);
     }
 
+    //Sets data to be displayed in the grid
     const setData = data => {
         refDataLength.current = data.length;
         _setData(data);
     }
 
+    /**
+     * Function that generates nice grid layout that fits/stretches boxes with different heights.
+     * It is achieved through absolute positioning.
+     * @param {*} data data that needs to be distributed
+     * @param {*} columns number of columns to show in the grid
+     */
     const buildGridLayout = ( data, columns ) => {
         
         const matrix = [];
@@ -33,13 +43,13 @@ const GifGallery = (props) => {
             }
             //determine col number
             const col = index - row*columns;
-            //determine top value
+            //determine top value : top value of box above + height of box above + 10 margin
             g.top = 0;
             if (row > 0){
                 let above = matrix[row-1][col];
                 g.top = parseInt(above.top) + parseInt(above.images.fixed_width.height) + 10;
             }
-            //determine left value
+            //determine left value : left value of box to the left + width of box to the left + 10 margin
             g.left = 0;
             if (col > 0){
                 let before = matrix[row][col-1];
@@ -52,12 +62,15 @@ const GifGallery = (props) => {
         return data;
     }
 
+    //shifts carrousel index to left
     const moveLeft = () => setOpenGif ( openGif => openGif - 1 >= 0 ? openGif - 1 : openGif );
 
+    //shifts carrousel index to right
     const moveRight = () => setOpenGif ( openGif => openGif + 1 < data.length ? openGif + 1 : openGif ); 
 
     React.useEffect ( () => {
 
+        //Listener to allow for keyboard slideshow navigation 
         window.addEventListener('keyup', (e) => {
             if (refOpenGif.current !== -1){
                 if (e.key === 'ArrowLeft'){

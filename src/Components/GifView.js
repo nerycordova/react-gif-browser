@@ -6,7 +6,7 @@ import Loader from '../Components/Loader';
 
 const GifView = (props) => {
 
-    const [loaded, setLoaded] = React.useState(false);
+    const [loaded, setLoaded] = React.useState(false); //used to determine if image has been loaded
     const refOverlay = React.useRef();
 
     const resource = props.gif.images.original;
@@ -16,6 +16,7 @@ const GifView = (props) => {
     const height = parseInt(resource.height) + 10;
 
     React.useEffect( () => {
+        //Listener to allow for closing of slideshow when clicking outside
         refOverlay.current.addEventListener('click', (e) => {
            if (e.target.className === 'overlay'){
                 props.closeView()
@@ -23,6 +24,7 @@ const GifView = (props) => {
         });
 
     } , [])
+
 
     React.useEffect( () => {
         setLoaded(false);

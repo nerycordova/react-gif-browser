@@ -10,13 +10,11 @@ const GifThumbnail = (props) => {
 
     return (
         <div style={{position:'absolute', width: width+'px', height: height + 'px', 
-                    top: props.gifData.top, left: props.gifData.left,
+                    top: props.gifData.top, left: props.gifData.left, //top and left values as per grid layout calculation (buildGridLayout)
                     backgroundColor:'#bbbbf9', cursor:'pointer'}}
             onClick = {props.onClick}
         >
-            <img src={webp} 
-                alt={title}
-                />
+            <img src={webp} alt={title} />
         </div>
     )
 
