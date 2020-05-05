@@ -1,12 +1,12 @@
 
 @font-face {
   font-family: "Sen";
-  src: url("/fonts/Sen-Regular.ttf");
+  src: url("./fonts/Sen-Regular.ttf");
 }
 
 @font-face {
   font-family: "Sen";
-  src: url("/fonts/Sen-Bold.ttf");
+  src: url("./fonts/Sen-Bold.ttf");
   font-weight: bold;
 }
 
@@ -15,8 +15,6 @@ body {
   font-family: 'Sen';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background: #
-  
 }
 
 code {

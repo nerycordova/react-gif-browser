@@ -1,5 +1,4 @@
 import React from 'react';
-import './App.css';
 import SearchBar from './Components/SearchBar';
 import GifGallery from './Components/GifGallery';
 import Loader from './Components/Loader';
