@@ -23,4 +23,4 @@ npm start
 
 5. Go to http://localhost:3000 in your browser
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+###### This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
