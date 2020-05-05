@@ -13,3 +13,11 @@
     font-size: 30px; 
     margin-top: 10px;
 }
+
+.loaderAbsolute{
+    color: #7f51fd; 
+    font-size: 30px; 
+    position: absolute;
+    margin-top: 10px;
+    z-index: 0;
+}

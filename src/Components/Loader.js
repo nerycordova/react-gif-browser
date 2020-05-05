@@ -5,8 +5,21 @@ import '../css/Loader.css';
 
 const Loader = (props) => {
 
+    let className;
+
+    switch(props.position){
+        case 'floating':
+            className = 'loaderFloating';
+            break;
+        case 'absolute':
+            className = 'loaderAbsolute';
+            break;
+        default:
+            className = 'loaderFixed';
+    }
+
     return(
-        <div className={props.fixed ? 'loaderFixed' : 'loaderFloating'}>
+        <div className={className}>
             Loading... <FontAwesomeIcon icon={faSpinner} spin/>
         </div>
     )

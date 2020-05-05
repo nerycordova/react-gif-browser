@@ -15,7 +15,12 @@ const SearchBar = (props) => {
     return (
         <div className={props.position === 'center' ? 'searchBar' : 'searchBar-Top'}>
             <div className="searchTitle">
-                <h1>GIF search engine</h1><sub>Powered by <a href="https://developers.giphy.com/docs/sdk/" target="_blank">Giphy</a></sub>
+                
+                <h1 onClick={()=>{window.location.reload()}} style={{cursor:'pointer'}}>
+                    GIF browser
+                </h1>
+                <sub>Powered by <a href="https://developers.giphy.com/docs/sdk/" rel="noopener noreferrer" target="_blank">Giphy</a></sub>
+                
             </div>
             <div className="searchForm">
                 <input type = "text" 

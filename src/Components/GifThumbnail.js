@@ -11,7 +11,9 @@ const GifThumbnail = (props) => {
     return (
         <div style={{position:'absolute', width: width+'px', height: height + 'px', 
                     top: props.gifData.top, left: props.gifData.left,
-                    backgroundColor:'#bbbbf9'}}>
+                    backgroundColor:'#bbbbf9', cursor:'pointer'}}
+            onClick = {props.onClick}
+        >
             <img src={webp} 
                 alt={title}
                 />

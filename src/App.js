@@ -25,6 +25,8 @@ const App = () => {
 
     setLoading(true); 
 
+    console.log(page);
+
     window.fetch(`${API_URL}?api_key=${API_KEY}&q=${q}&limit=${PAGE_SIZE}&offset=${PAGE_SIZE*page}`)
       .then( response => response.json() )
       .then( json => {
@@ -89,7 +91,7 @@ const App = () => {
             columns={GRID_COLUMNS}
           />
       }
-      {loading && <Loader fixed={data.length > 0}/>}
+      {loading && <Loader position={data.length > 0 ? 'fixed' : 'floating'}/>}
     </div>
   );
 }
