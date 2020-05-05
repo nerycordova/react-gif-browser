@@ -25,6 +25,7 @@ npm start
 
 ## ToDo
 - [ ] Add share buttons to GIF preview
+- [ ] Responsive design
 
 ## Resources
 * This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app)
