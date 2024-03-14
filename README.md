@@ -1,6 +1,6 @@
 # React GIF browser
 
-GIF browser created in React, powerd by [Giphy](https://developers.giphy.com/docs/sdk/). See demo [here](https://nerychucuy.github.io/react-gif-browser/).
+GIF browser created in React, powerd by [Giphy](https://developers.giphy.com/docs/sdk/). See demo [here](https://nerycordova.github.io/react-gif-browser/).
 
 ## Running this project in your local environment
 
